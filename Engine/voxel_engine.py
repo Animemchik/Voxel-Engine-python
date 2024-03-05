@@ -7,6 +7,7 @@ import sys
 from .shader_program import ShaderProgram
 from .scene import Scene
 from .player import Player
+from .textures import Textures
 
 
 class VoxelEngine:
@@ -30,6 +31,9 @@ class VoxelEngine:
         self.clock = pg.time.Clock()
         self.delta_time = 0
         self.time = 0
+
+        pg.event.set_grab(True)  # Mouse stays at the same pos
+        pg.mouse.set_visible(False)  # Hides our mouse
         # endregion
 
         self.is_running = True
@@ -37,10 +41,12 @@ class VoxelEngine:
         self.shader_program = None
         self.scene = None
         self.player = None
+        self.textures = None
 
         self.on_init()
 
     def on_init(self):
+        self.textures = Textures(self)
         self.player = Player(self)
         self.shader_program = ShaderProgram(self)
         self.scene = Scene(self)
