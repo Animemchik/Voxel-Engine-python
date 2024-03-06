@@ -14,7 +14,7 @@ class Textures:
         self.texture_0.use(location = 0)
 
     def load(self, file_name):
-        texture = pg.image.load(f"Engine/assets/{file_name}")
+        texture = pg.image.load(f"assets/{file_name}")
         texture = pg.transform.flip(texture, flip_x = True, flip_y = False)
 
         texture = self.ctx.texture(

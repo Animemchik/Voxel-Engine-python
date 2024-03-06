@@ -30,7 +30,7 @@ class World:
             chunk.build_mesh()
 
     def update(self):
-        pass
+        pass  # self.voxel_handler.update()
 
     def render(self):
         for chunk in self.chunks:

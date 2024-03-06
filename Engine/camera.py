@@ -15,8 +15,8 @@ class Camera:
         self.matrix_view = glm.mat4()
 
     def update(self):
-        self.update_view_matrix()
         self.update_vectors()
+        self.update_view_matrix()
 
     def update_view_matrix(self):
         self.matrix_view = glm.lookAt(self.position, self.position + self.__forward, self.__up)
@@ -37,11 +37,11 @@ class Camera:
     def rotate_yaw(self, delta_x):
         self.yaw += delta_x
 
-    def move_right(self, velocity):
-        self.position += self.__right * velocity
-
     def move_left(self, velocity):
         self.position -= self.__right * velocity
+
+    def move_right(self, velocity):
+        self.position += self.__right * velocity
 
     def move_up(self, velocity):
         self.position += self.__up * velocity
